@@ -9,11 +9,23 @@ class Janela(QWidget):
         label = QLabel(self)
         label.setText("Texto no app")
         label.move(20,34) # Move a label
-        self.aline1=label.alignment() # return o valor do alinhamento
+
         label.resize(150, 40)# Redefine o tamanho da label
         label.setStyleSheet("background-color: black; color:white")
+
         label2=QLabel(self)
-        label2.setText("Texto 2 no app")
+        label2.setText("TEXTO 2")
+        label2.setGeometry(20,0,100,30)
+        label2.setMargin(20)
+        #label2.hide() Esconde a Label
+        #label2.clear() # Limpa o conteudo
+
+        "Propriedades"
+        print(label2.text())# devolve o valor
+        print(label2.alignment()) # return o valor do alinhamento
+        print(label2.hasSelectedText()) # Se ha algum texto selecionado devolve um Bool
+        print(label2.indent())
+        print(label2.margin()) #Devolve o valor da marge dada ao elemento
 
         label2.setStyleSheet("background-color: #6C4473; color:white")
 
@@ -26,5 +38,5 @@ app=QApplication(sys.argv)
 
 janela=Janela()
 janela.show()
-print(janela.aline1)
+
 sys.exit(app.exec())
