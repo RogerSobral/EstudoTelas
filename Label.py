@@ -1,3 +1,4 @@
+from PySide6.QtGui import QFont,QPixmap,QMovie
 from PySide6.QtWidgets import QApplication, QWidget, QLabel
 import sys
 
@@ -9,14 +10,18 @@ class Janela(QWidget):
         label = QLabel(self)
         label.setText("Texto no app")
         label.move(20,34) # Move a label
-
+        fontTexto=QFont("Arial",15)
         label.resize(150, 40)# Redefine o tamanho da label
         label.setStyleSheet("background-color: black; color:white")
 
+
+
         label2=QLabel(self)
         label2.setText("TEXTO 2")
-        label2.setGeometry(20,0,100,30)
-        label2.setMargin(20)
+        label2.setGeometry(20,150,100,90)
+        label2.setMargin(0)
+        label2.setFont(fontTexto)
+        label2.move(100,25)
         #label2.hide() Esconde a Label
         #label2.clear() # Limpa o conteudo
 
@@ -30,6 +35,24 @@ class Janela(QWidget):
         label2.setStyleSheet("background-color: #6C4473; color:white")
 
 
+
+        # Trabalhando com GIF
+
+        movi = QMovie("img/onepiece.gif")
+        movi.setSpeed(150)
+        label_movi = QLabel(self)
+        label_movi.setMovie(movi)
+        movi.start()
+
+
+        #Trabalhando com Imagens na label
+
+"""
+        labelIMG=QLabel(self)
+        pix=QPixmap("imagem.jpg")
+
+        labelIMG.setPixmap(pix)
+"""
 
 
 
