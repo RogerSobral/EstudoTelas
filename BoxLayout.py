@@ -1,4 +1,5 @@
-from PySide6.QtCore import QSize
+
+from PySide6.QtCore import QSize, Qt
 from PySide6.QtGui import QFont, QPixmap
 from PySide6.QtWidgets import (QApplication, QWidget, QHBoxLayout,QVBoxLayout,
                                QPushButton, QLineEdit, QLabel)
@@ -10,35 +11,35 @@ class Tela(QWidget):
         super().__init__()
         self.setGeometry(100, 50, 600, 450)
         self.setWindowTitle("Box Layout")
-        self.setMaximumSize(600,450)
-        self.setMinimumSize(200,150)
         self.create_widgets()
 
 #Arrumar o código
     def create_widgets(self):
         vbox=QVBoxLayout()
 
-        hbox=QHBoxLayout()
+        imagem=QPixmap("img/fundo_tratado_novo.png")
+        print(imagem.size())
+        label_img=QLabel()
+        label_img.setPixmap(imagem)
+        label_img.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
 
         btn=QPushButton("Entrar")
-     #   icone=QLabel()
-     #   icon=QPixmap("img/icone2.png")
-
-      #  icone.setPixmap(icon)
 
         login=QLineEdit()
         login.setPlaceholderText("Login")
         #hbox.addWidget(icone)
-        hbox.addWidget(login)
+        vbox.addWidget(label_img)
+        vbox.addWidget(login)
 
         senha=QLineEdit()
         senha.setEchoMode(QLineEdit.EchoMode.Password)
         senha.setPlaceholderText("Senha")
-        vbox.addItem(hbox)
-        vbox.addWidget(senha)
 
-        hbox.addWidget(btn)
-        self.setLayout(hbox)
+        vbox.addWidget(senha)
+        vbox.addWidget(btn)
+
+        self.setLayout(vbox)
 
 
 
